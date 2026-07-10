@@ -1,6 +1,6 @@
-# Personal Notes: Tucker vs. CP Decomposition
+# Notes: Tucker vs. CP Decomposition
 
-## Core intuition
+## definition
 
 A tensor decomposition is compression by finding *structure* — instead of
 storing every number in the tensor, store a small set of "building blocks"
@@ -11,7 +11,7 @@ that can reconstruct it approximately.
 - **CP** = Tucker with the core forced diagonal → sum of rank-1 terms, no
   cross-mode interaction beyond the sum itself.
 
-## What "rank" means differently in each method
+## what does rank mean in each method?
 
 - Tucker: **one rank per mode** — `(r1, r2, r3)`. You can compress height
   and width aggressively while keeping all 3 color channels.
@@ -19,10 +19,9 @@ that can reconstruct it approximately.
   simultaneously. Less flexible per-mode, but often fewer total parameters
   for the same rank number.
 
-This is why comparing "Tucker rank 100" to "CP rank 100" isn't a perfectly
-fair fight — they're not the same kind of number.
+you cant compare "Tucker rank 100" to "CP rank 100" (they're not the same kind of number)
 
-## What I found
+## findings-
 
 - At roughly comparable settings, Tucker error = 0.0931, CP error = 0.1016.
   Tucker's dense core buys it a real, if modest, accuracy edge.
@@ -49,7 +48,7 @@ fair fight — they're not the same kind of number.
       check whether NATL Lab's applications favor Tucker or CP-style
       decompositions and why.
 
-## Vocabulary I want to keep straight
+## new vocab
 
 - **Fiber**: 1D slice of a tensor (fix all but one index)
 - **Unfolding/matricization**: reshaping a tensor into a matrix along one mode
